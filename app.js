@@ -1,35 +1,28 @@
-// Registra o Service Worker apontando para o caminho correto do repositório
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
-    navigator.serviceWorker.register('/app-radioan/sw.js')
-      .then(registration => {
-        console.log('Service Worker registrado:', registration);
-      })
-      .catch(error => {
-        console.log('Falha ao registrar Service Worker:', error);
-      });
+    navigator.serviceWorker.register('sw.js')
+      .then(reg => console.log('Service Worker registrado:', reg))
+      .catch(err => console.log('Erro no Service Worker:', err));
   });
 }
 
-// Captura a instalação automática do PWA
-let deferredPrompt;
+let promptInstalacao;
 const btnInstalar = document.getElementById('btnInstalar');
 
 window.addEventListener('beforeinstallprompt', (e) => {
   e.preventDefault();
-  deferredPrompt = e;
-  if (btnInstalar) {
-    btnInstalar.style.display = 'block';
-  }
+  promptInstalacao = e;
 });
 
 if (btnInstalar) {
   btnInstalar.addEventListener('click', async () => {
-    if (!deferredPrompt) return;
-    deferredPrompt.prompt();
-    const { outcome } = await deferredPrompt.userChoice;
-    console.log(`Resultado: ${outcome}`);
-    deferredPrompt = null;
-    btnInstalar.style.display = 'none';
+    if (promptInstalacao) {
+      promptInstalacao.prompt();
+      const { outcome } = await promptInstalacao.userChoice;
+      console.log(`Resultado do clique: ${outcome}`);
+      promptInstalacao = null;
+    } else {
+      alert('Para instalar:\n1. Toque nos 3 pontinhos do seu navegador (⋮).\n2. Selecione "Adicionar à tela inicial" ou "Instalar aplicativo".');
+    }
   });
 }
