@@ -5,7 +5,7 @@
 }
 
 body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     background: #0d1b2a;
     color: #ffffff;
     min-height: 100vh;
@@ -18,29 +18,25 @@ body {
 .card-instalacao {
     background: #1b263b;
     border-radius: 20px;
-    padding: 35px 25px;
+    padding: 30px 20px;
     text-align: center;
-    max-width: 380px;
+    max-width: 400px;
     width: 100%;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
-    border: 1px solid #415a77;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
 }
 
 .logo-app {
-    width: 130px;
-    height: 130px;
-    border-radius: 26px;
+    width: 120px;
+    height: 120px;
+    border-radius: 24px;
     margin-bottom: 20px;
-    object-fit: cover;
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
 .card-instalacao h1 {
-    font-size: 1.4rem;
-    font-weight: 700;
-    margin-bottom: 12px;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
     color: #ffffff;
-    line-height: 1.2;
 }
 
 .card-instalacao p {
@@ -56,56 +52,32 @@ body {
     border: none;
     width: 100%;
     padding: 16px;
-    font-size: 1.05rem;
+    font-size: 1.1rem;
     font-weight: bold;
     border-radius: 12px;
     cursor: pointer;
     box-shadow: 0 4px 14px rgba(230, 57, 70, 0.4);
-    margin-bottom: 15px;
-    transition: transform 0.2s, background 0.2s;
+    margin-bottom: 12px;
+    transition: transform 0.2s;
 }
 
 .btn-instalar:active {
-    transform: scale(0.97);
-    background: #d62839;
+    transform: scale(0.98);
 }
 
 .btn-web {
-    display: inline-block;
+    display: block;
     color: #778da9;
     text-decoration: none;
     font-size: 0.9rem;
     padding: 10px;
-    transition: color 0.2s;
 }
 
-.btn-web:hover {
-    color: #e0e1dd;
-}
-
-.instrucoes-ios {
-    background: #0d1b2a;
-    border: 1px solid #415a77;
-    border-radius: 12px;
-    padding: 15px;
+.dica {
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid #415a77;
+    font-size: 0.8rem;
+    color: #a3b18a;
     text-align: left;
-    font-size: 0.85rem;
-    color: #e0e1dd;
-    margin-bottom: 15px;
-}
-
-.instrucoes-ios p {
-    margin-bottom: 8px;
-    color: #ffffff;
-}
-
-.instrucoes-ios ol {
-    margin-left: 18px;
-    line-height: 1.5;
-}
-
-.icone-share {
-    font-size: 1rem;
-    color: #317efb;
-    font-weight: bold;
 }
