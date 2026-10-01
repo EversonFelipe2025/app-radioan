@@ -1,10 +1,10 @@
 {
-  "name": "Rádio Atalaia NotÍcias",
+  "name": "Rádio Atalaia Notícias",
   "short_name": "Rádio AN",
-  "start_url": "/",
+  "start_url": "https://www.portalatalaianoticias.com.br/p/radioan.html?m=1",
   "display": "standalone",
-  "background_color": "#ffffff",
-  "theme_color": "#317EFB",
+  "background_color": "#0d1b2a",
+  "theme_color": "#0d1b2a",
   "icons": [
     {
       "src": "icon-192.png",
