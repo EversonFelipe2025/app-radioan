@@ -2,11 +2,11 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#0d1b2a">
     <title>Rádio Atalaia Notícias</title>
     <link rel="manifest" href="manifest.json">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css?v=2">
     
     <!-- Suporte para iOS / Safari -->
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -15,7 +15,6 @@
     <link rel="apple-touch-icon" href="icon-512.png">
 
     <script>
-        // Se o App já estiver instalado, abre direto o player da rádio
         if (window.matchMedia('(display-mode: standalone)').matches || navigator.standalone) {
             window.location.href = "https://www.portalatalaianoticias.com.br/p/radioan.html?m=1";
         }
@@ -32,12 +31,10 @@
             <h1 class="titulo">Rádio Atalaia Notícias</h1>
             <p class="descricao">Instale o aplicativo oficial para ouvir nossa programação ao vivo no seu celular!</p>
 
-            <!-- Botão para Android / PC -->
             <button id="btnInstalar" class="btn-instalar">
-                <span>📲</span> Instalar Aplicativo
+                📲 Instalar Aplicativo
             </button>
 
-            <!-- Instruções para iPhone / Safari -->
             <div id="instrucoesIos" class="instrucoes-ios" style="display: none;">
                 <p><b>Para instalar no iPhone (Safari):</b></p>
                 <ol>
