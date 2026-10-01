@@ -1,8 +1,13 @@
 self.addEventListener('install', (event) => {
-  console.log('Service Worker instalado.');
+  self.skipWaiting();
+});
+
+self.addEventListener('activate', (event) => {
+  event.waitUntil(clients.claim());
 });
 
 self.addEventListener('fetch', (event) => {
-  // Aqui você adicionaria lógica de cache para funcionar offline.
-  // Por enquanto, apenas deixamos o navegador lidar com os pedidos.
+  event.respondWith(
+    fetch(event.request).catch(() => caches.match(event.request))
+  );
 });
