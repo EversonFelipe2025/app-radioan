@@ -4,26 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#0d1b2a">
-    <title>Rádio Atalaia Notícias</title>
+    <title>Rádio Atalaia Notícias - App</title>
     <link rel="manifest" href="manifest.json">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header class="topo">
+    <div class="card-instalacao">
+        <img src="icon-512.png" alt="Rádio Atalaia Notícias" class="logo-app">
         <h1>Rádio Atalaia Notícias</h1>
-        <!-- Botão de Instalar (inicialmente escondido) -->
-        <button id="btnInstalar" style="display: none; margin-top: 8px; padding: 6px 12px; background: #317EFB; color: #fff; border: none; border-radius: 4px; font-weight: bold; cursor: pointer;">
-            📲 Instalar App
+        <p>Instale nosso aplicativo oficial para ouvir nossa programação ao vivo a qualquer momento no seu celular!</p>
+        
+        <!-- Botão principal de Instalar -->
+        <button id="btnInstalar" class="btn-instalar">
+            📲 Instalar Aplicativo
         </button>
-    </header>
 
-    <main>
-        <iframe 
-            src="https://www.portalatalaianoticias.com.br/p/radioan.html?m=1" 
-            title="Site da Rádio"
-            allow="autoplay">
-        </iframe>
-    </main>
+        <!-- Botão secundário para ouvir no navegador -->
+        <a href="https://www.portalatalaianoticias.com.br/p/radioan.html?m=1" class="btn-web" target="_blank">
+            🌐 Ouver no Navegador
+        </a>
+
+        <div id="dicaInstalacao" class="dica">
+            <p>💡 <b>Dica:</b> Se o botão não funcionar diretamente, toque nos <b>três pontos (⋮)</b> do navegador e escolha <b>"Adicionar à tela inicial"</b> ou <b>"Instalar aplicativo"</b>.</p>
+        </div>
+    </div>
 
     <script src="app.js"></script>
 </body>
