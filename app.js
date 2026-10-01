@@ -7,35 +7,34 @@ if ('serviceWorker' in navigator) {
   });
 }
 
-// Identifica se o usuário está acessando pelo iPhone/iPad (Safari)
 const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
 const btnInstalar = document.getElementById('btnInstalar');
 const instrucoesIos = document.getElementById('instrucoesIos');
 
+let promptInstalacao = null;
+
+// Escuta o evento nativo de instalação do Chrome/Android/Brave
+window.addEventListener('beforeinstallprompt', (e) => {
+  e.preventDefault();
+  promptInstalacao = e;
+});
+
 if (isIOS) {
-  // Se for Safari/iOS, esconde o botão padrão e mostra o passo a passo do Safari
+  // Se for Safari/iPhone, esconde o botão e mostra as instruções da Apple
   if (btnInstalar) btnInstalar.style.display = 'none';
   if (instrucoesIos) instrucoesIos.style.display = 'block';
 } else {
-  // Se for Android / Chrome / PC, ativa o botão normal de instalação
-  let promptInstalacao;
-
-  window.addEventListener('beforeinstallprompt', (e) => {
-    e.preventDefault();
-    promptInstalacao = e;
-    if (btnInstalar) btnInstalar.style.display = 'block';
-  });
-
+  // Para Android/PC, o botão fica sempre visível
   if (btnInstalar) {
-    btnInstalar.style.display = 'block'; // Fica visível para o usuário clicar
     btnInstalar.addEventListener('click', async () => {
       if (promptInstalacao) {
         promptInstalacao.prompt();
         const { outcome } = await promptInstalacao.userChoice;
-        console.log(`Resultado: ${outcome}`);
+        console.log(`Resultado do clique: ${outcome}`);
         promptInstalacao = null;
       } else {
-        alert('Para instalar:\nToque nos 3 pontos (⋮) do seu navegador e escolha "Adicionar à tela inicial".');
+        // Se o evento automático ainda não tiver disparado, orienta o usuário
+        alert('Para instalar o App:\n\n1. Toque nos 3 pontos (⋮) no canto do navegador.\n2. Escolha "Adicionar à tela inicial" ou "Instalar aplicativo".');
       }
     });
   }
